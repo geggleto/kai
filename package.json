@@ -4,11 +4,18 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "npm run css-build && vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "css-deploy": "npm run css-build",
+    "css-build": "node-sass resources/main.scss public/assets/main.css",
+    "css-watch": "npm run css-build -- --watch",
+    "deploy": "npm run css-deploy"
   },
   "dependencies": {
-    "vue": "^2.5.16"
+    "bulma": "^0.7.1",
+    "node-sass": "^4.9.0",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.9",
